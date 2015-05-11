@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'foundation-rails'
 gem 'dotenv'
+gem 'curb'
 
 group :development, :test do
   gem 'dotenv-rails'

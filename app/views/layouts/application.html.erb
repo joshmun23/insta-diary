@@ -6,7 +6,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -20,7 +19,7 @@
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign In', "https://api.instagram.com/oauth/authorize/?client_id=" +  ENV['CLIENT_ID'] + "&redirect_uri=" + ENV['REDIRECT_URI'] + "&response_type=code" %></li>
         <%- end -%>
       </ul>
     </section>

@@ -10,4 +10,4 @@
   - add curl request in homes controller to retrieve access token
     MORE INFO ON CURL: https://github.com/taf2/curb<br>
   - add column to users table for access_token<br>
-
+  - after authentication, save access token to current_user in homes_controller#index

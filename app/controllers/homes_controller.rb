@@ -11,11 +11,10 @@ class HomesController < ApplicationController
         "https://api.instagram.com/oauth/access_token",
         {
           client_id: ENV['CLIENT_ID'], client_secret: ENV['CLIENT_SECRET'],
-          grant_type: 'authorization_code', redirect_uri: 'http://localhost:3000',
+          grant_type: 'authorization_code', redirect_uri: ENV['REDIRECT_URI'],
           code: params[:code]
         }
       )
-
       access_token = JSON.parse(http.body_str)['access_token']
       current_user.access_token = access_token
 
@@ -24,11 +23,10 @@ class HomesController < ApplicationController
           "https://api.instagram.com/v1/subscriptions/",
           {
             client_id: ENV['CLIENT_ID'], client_secret: ENV['CLIENT_SECRET'],
-            object: 'user', aspect: 'media', callback_url:'http://localhost:3000',
+            object: 'user', aspect: 'media', callback_url: ENV['REDIRECT_URI'],
             verify_token: current_user.access_token
           }
         )
-
         body = JSON.parse(http.body_str)
       end
     end

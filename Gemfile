@@ -15,7 +15,6 @@ gem 'dotenv'
 gem 'curb'
 gem 'rails_serve_static_assets'
 gem 'rails_12factor', group: :production
-gem 'pry-remote'
 
 group :development, :test do
   gem 'dotenv-rails'

@@ -27,10 +27,8 @@ class HomesController < ApplicationController
             verify_token: current_user.access_token
           }
         )
-        binding.remote_pry
 
         @body = JSON.parse(http.body_str)
-        binding.remote_pry
       end
     end
   end

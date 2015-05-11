@@ -19,15 +19,19 @@ class HomesController < ApplicationController
       current_user.access_token = access_token
 
       if current_user.save
-        http = Curl.post(
-          "https://api.instagram.com/v1/subscriptions/",
-          {
-            client_id: ENV['CLIENT_ID'], client_secret: ENV['CLIENT_SECRET'],
-            object: 'user', aspect: 'media', callback_url: ENV['REDIRECT_URI'],
-            verify_token: current_user.access_token
-          }
-        )
-        body = JSON.parse(http.body_str)
+        ################################
+        #SUBSCRIPTIONS TO RE-WORK LATER#
+        ################################
+
+        # http = Curl.post(
+        #   "https://api.instagram.com/v1/subscriptions/",
+        #   {
+        #     client_id: ENV['CLIENT_ID'], client_secret: ENV['CLIENT_SECRET'],
+        #     object: 'user', aspect: 'media', callback_url: ENV['REDIRECT_URI'],
+        #     verify_token: current_user.access_token
+        #   }
+        # )
+        # body = JSON.parse(http.body_str)
       end
     end
   end

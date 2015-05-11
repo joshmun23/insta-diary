@@ -27,7 +27,8 @@ class HomesController < ApplicationController
             verify_token: current_user.access_token
           }
         )
-        body = JSON.parse(http.body_str)
+        render :index
+        @body = JSON.parse(http.body_str)
       end
     end
   end

@@ -15,10 +15,22 @@ class HomesController < ApplicationController
           code: params[:code]
         }
       )
+
       access_token = JSON.parse(http.body_str)['access_token']
       current_user.access_token = access_token
 
       if current_user.save
+
+        ################################
+        ##  Retrieve Photos and Tags  ##
+        ################################
+
+        http = Curl.get(
+          "https://api.instagram.com/v1/tags/foodporn/media/recent?access_token=" +
+          current_user.access_token
+        )
+        @posts = JSON.parse(http.body_str)['data']
+
         ################################
         #SUBSCRIPTIONS TO RE-WORK LATER#
         ################################

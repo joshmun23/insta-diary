@@ -13,6 +13,8 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'dotenv'
 gem 'curb'
+gem 'rails_serve_static_assets'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'dotenv-rails'

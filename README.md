@@ -17,3 +17,11 @@
   and <a href="https://github.com/heroku/rails_serve_static_assets">rails_serve_static_assets</a> gems for heroku deployment
   - deployed to heroku, set config variables in heroku for client id + secret
   - modified instagram redirect URI on instagram website to reflect heroku url
+<br>
+<strong>5/12</strong><br>
+  <h4>How to use the app</h4>
+  <ul>
+    <li>Sign up/Sign in at the right section of the top bar</li>
+    <li>Authenticate with IG once signed in at the right section of the top bar</li>
+    <li></li>
+  </ul>

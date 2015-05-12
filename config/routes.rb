@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   resources :homes, only: [:index]
   resources :searches, only: [:new]
+  resources :users do
+    resources :plans, only: [:new]
+  end
 end

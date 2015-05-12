@@ -25,5 +25,5 @@
   <ul>
     <li>Sign up/Sign in at the right section of the top bar</li>
     <li>Authenticate with IG once signed in at the right section of the top bar</li>
-    <li>Search for a #hashtag at the left section of hte top bar</li>
+    <li>Search for a #hashtag at the left section of the top bar</li>
   </ul>

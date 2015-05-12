@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511215031) do
+ActiveRecord::Schema.define(version: 20150512191048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "plans", force: :cascade do |t|
+    t.string "type", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.integer "ig_id",        null: false
@@ -23,6 +27,14 @@ ActiveRecord::Schema.define(version: 20150511215031) do
     t.integer "created_time", null: false
     t.string  "media",        null: false
   end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "user_id",  null: false
+    t.integer "plan_id",  null: false
+    t.string  "schedule", null: false
+  end
+
+  add_index "subscriptions", ["user_id", "plan_id"], name: "index_subscriptions_on_user_id_and_plan_id", unique: true, using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name",    null: false

@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+plans = {
+  type: %w{diet exercise smoking},
+}
+
+plans.each do |plan|
+  new_plan = Plan.new
+
+  type
+end

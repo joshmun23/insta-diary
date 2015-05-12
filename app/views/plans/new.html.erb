@@ -1,0 +1,9 @@
+<%= form_for [@user, @subscription], url: new_user_plan_path do |f| %>
+  <%= f.label :type %>
+  <%= f.select :type %>
+
+  <%= f.label :schedule %>
+  <%= f.select :schedule %>
+
+  <%= f.submit class: 'button expand' %>
+<% end %>

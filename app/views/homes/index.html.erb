@@ -1,5 +1,23 @@
 <p>
-  <% if current_user %>
-    <%= current_user.access_token %>
+  <% if @posts %>
+    <%= @posts.each do |post| %>
+      <ul>
+        <h3>User Info</h3>
+        <% if post['tags'].include?('foodporn') %>
+          <h4><strong><em>SHOCK THIS FOOL!!<em></strong></h4>
+        <% end %>
+        <li><%= post['user']['username'] %></li>
+        <li>ID: <%= post['user']['id'] %></li>
+        <li>Name: <%= post['user']['full_name'] %></li>
+        <li><%= image_tag("#{post['user']['profile_picture']}") %></li>
+        <h3>Tags</h3>
+        <li><%= post['tags'] %></li>
+        <h3>Created time</h3>
+        <li><%= post['created_time'] %></li>
+        <h3>Post</h3>
+        <li><%= image_tag("#{post['images']['standard_resolution']['url']}") %></li>
+      </ul>
+    </br>
+    <% end %>
   <% end %>
 </p>

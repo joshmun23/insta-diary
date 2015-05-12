@@ -3,6 +3,9 @@
     <%= @posts.each do |post| %>
       <ul>
         <h3>User Info</h3>
+        <% if post['tags'].include?('foodporn') %>
+          <h4><strong><em>SHOCK THIS FOOL!!<em></strong></h4>
+        <% end %>
         <li><%= post['user']['username'] %></li>
         <li>ID: <%= post['user']['id'] %></li>
         <li>Name: <%= post['user']['full_name'] %></li>

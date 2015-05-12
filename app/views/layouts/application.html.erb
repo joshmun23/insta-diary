@@ -8,15 +8,27 @@
 <body>
   <nav class="top-bar">
     <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">InstaDiary</a></h1>
+      <li class="has-form">
+        <div class="row collapse">
+          <%= form_tag(new_search_path, method: 'get') do %>
+            <div class="large-8 small-9 columns">
+              <%= label_tag :search_term, '' %>
+              <%= text_field_tag :search_term, '', placeholder: 'Find a Hashtag' %>
+            </div>
+            <div class="large-4 small-3 columns">
+              <%= submit_tag('Search', class: 'alert button expand') %>
+            </div>
+          <% end %>
+        </div>
       </li>
     </ul>
 
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
-          <li><%= link_to 'Authenticate IG', "https://api.instagram.com/oauth/authorize/?client_id=" +  ENV['CLIENT_ID'] + "&redirect_uri=" + ENV['REDIRECT_URI'] + "&response_type=code&scope=basic" %></li>
+          <%- if !current_user.access_token %>
+            <li><%= link_to 'Authenticate IG', "https://api.instagram.com/oauth/authorize/?client_id=" +  ENV['CLIENT_ID'] + "&redirect_uri=" + ENV['REDIRECT_URI'] + "&response_type=code&scope=basic" %></li>
+          <%- end %>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>

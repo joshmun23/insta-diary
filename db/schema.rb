@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512191048) do
+ActiveRecord::Schema.define(version: 20150512193156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "plans", force: :cascade do |t|
-    t.string "type", null: false
+    t.string "option", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -28,10 +28,14 @@ ActiveRecord::Schema.define(version: 20150512191048) do
     t.string  "media",        null: false
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.string "option", null: false
+  end
+
   create_table "subscriptions", force: :cascade do |t|
-    t.integer "user_id",  null: false
-    t.integer "plan_id",  null: false
-    t.string  "schedule", null: false
+    t.integer "user_id",     null: false
+    t.integer "plan_id",     null: false
+    t.integer "schedule_id", null: false
   end
 
   add_index "subscriptions", ["user_id", "plan_id"], name: "index_subscriptions_on_user_id_and_plan_id", unique: true, using: :btree

@@ -1,0 +1,13 @@
+<ul>
+  <% if current_user %>
+    <% current_user.subscriptions.each do |subscription| %>
+      <li>
+        <span><%= subscription.plan.option %></span>
+        <% binding.pry %>
+        <span><%= subscription.schedule.option %></span>
+      </li>
+    <% end %>
+  <% else %>
+    <h3>You must sign in!</h3>
+  <% end %>
+</ul>

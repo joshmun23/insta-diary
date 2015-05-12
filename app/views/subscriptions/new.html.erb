@@ -1,0 +1,9 @@
+<%= form_for [@user, @subscription], url: user_subscriptions_path do |f| %>
+  <%= f.label :plan %>
+  <%= f.collection_select(:plan_id, Plan.all, :id, :option) %>
+
+  <% f.label :schedule %>
+  <%= f.collection_select(:schedule_id, Schedule.all, :id, :option) %>
+
+  <%= f.submit class: 'button' %>
+<% end %>

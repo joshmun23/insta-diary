@@ -28,6 +28,8 @@
         <%- if current_user -%>
           <%- if !current_user.access_token %>
             <li><%= link_to 'Authenticate IG', "https://api.instagram.com/oauth/authorize/?client_id=" +  ENV['CLIENT_ID'] + "&redirect_uri=" + ENV['REDIRECT_URI'] + "&response_type=code&scope=basic" %></li>
+          <%- else %>
+            <li><%= link_to 'Subscribe to a New Plan', new_user_subscription_path(current_user) %></li>
           <%- end %>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
